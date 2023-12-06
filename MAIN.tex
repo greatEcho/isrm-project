@@ -1,0 +1,80 @@
+%% Преамбула TeX-файла
+
+% 1. Стиль и язык
+\documentclass[utf8x]{G7-32} % Стиль (по умолчанию будет 14pt)
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+% Остальные стандартные настройки убраны в preamble.inc.tex.
+% \include{preamble.inc}
+
+% Настройки листингов.
+% \include{listings.inc}
+
+% Полезные макросы листингов.
+% \include{macros.inc}
+
+\makeatletter
+\input{preamble.inc}
+\input{listings.inc}
+\input{macros.inc}
+\makeatother
+
+\begin{document}
+
+\frontmatter % выключает нумерацию ВСЕГО; здесь начинаются ненумерованные главы: реферат, введение, глоссарий, сокращения и прочее.
+
+% Команды \breakingbeforechapters и \nonbreakingbeforechapters
+% управляют разрывом страницы перед главами.
+% По-умолчанию страница разрывается.
+
+% \nobreakingbeforechapters
+% \breakingbeforechapters
+
+\singlespacing
+\include{00-titlepage}
+% \include{01-executors}
+\onehalfspacing
+% \include{02-abstract}
+
+\pdfbookmark[1]{СОДЕРЖАНИЕ}{TOC}
+\tableofcontents
+
+\include{03-defines}
+\include{04-abbrev}
+
+% Введение
+\include{05-intro}
+
+\mainmatter % это включает нумерацию глав и секций в документе ниже
+\include{work}
+% \input{10-aao_section1}
+% \input{17-polar_codes}
+% \input{18-LDPC}
+% \include{20-coding_for_4g}
+% \include{30-5G_polar}
+% \include{31-5G_LDPC}
+% input чтобы несоздавался разрыв страницы между файлами
+% \input{41-LTE_Matlab}
+% \input{42-framework}
+% \input{43-complexity}
+% \include{50-simulation}
+
+\backmatter %% Здесь заканчивается нумерованная часть документа и начинаются ссылки и
+            %% заключение
+
+\include{80-conclusion}
+
+\include{81-biblio}
+
+% \appendix   % Тут идут приложения
+
+% \include{91-appendix-complex-table}
+% \include{92-appendix-FER}
+% \include{93-appendix-complexity}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
